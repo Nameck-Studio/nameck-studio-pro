@@ -1,0 +1,206 @@
+@import 'tailwindcss';
+
+/* ===== Cyber-Luxe Dark Design System ===== */
+
+@theme {
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #121414;
+  --color-bg-card: #1e2020;
+  --color-bg-glass: rgba(26, 26, 26, 0.8);
+
+  --color-accent-lime: #c3f400;
+  --color-accent-lime-light: #d4f94d;
+  --color-accent-lime-glow: rgba(195, 244, 0, 0.3);
+  --color-accent-lime-subtle: rgba(195, 244, 0, 0.1);
+
+  --color-text-primary: #e2e2e2;
+  --color-text-secondary: #a3a3a3;
+  --color-text-muted: #6b6b6b;
+
+  --color-border-default: rgba(255, 255, 255, 0.06);
+  --color-border-hover: rgba(255, 255, 255, 0.12);
+
+  --color-status-success: #4ade80;
+  --color-status-warning: #facc15;
+  --color-status-error: #f87171;
+  --color-status-info: #60a5fa;
+
+  --font-sans: 'Spline Sans', system-ui, sans-serif;
+
+  --shadow-glow: 0 0 20px rgba(195, 244, 0, 0.1);
+  --shadow-glow-strong: 0 0 30px rgba(195, 244, 0, 0.2);
+}
+
+/* ===== Base Styles ===== */
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Glass Morphism ===== */
+
+.glass {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border-default);
+}
+
+.glass-hover:hover {
+  border-color: var(--color-border-hover);
+}
+
+/* ===== Glow Effects ===== */
+
+.glow-lime {
+  box-shadow: var(--shadow-glow);
+}
+
+.glow-lime-strong {
+  box-shadow: var(--shadow-glow-strong);
+}
+
+/* ===== Animations ===== */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: var(--line-length, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill-area {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes grow-bar {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes fill-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-draw-line {
+  animation: draw-line 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fill-area {
+  animation: fill-area 1s ease-out 0.8s both;
+}
+
+.animate-grow-bar {
+  animation: grow-bar 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: bottom;
+}
+
+.animate-fill-progress {
+  animation: fill-progress 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: left;
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ===== Scrollbar ===== */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
